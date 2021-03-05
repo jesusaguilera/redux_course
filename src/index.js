@@ -21,7 +21,7 @@ store.dispatch(updateBug(
   }
 ));
 store.dispatch(addBug("Bug two"));
-store.dispatch(removeBug(1));
+// store.dispatch(removeBug(1));
 
 
 unsubscribe();
