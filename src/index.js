@@ -1,5 +1,7 @@
-import store from "./store";
-import { addBug, updateBug, removeBug } from "./actions";
+import configureStore from "./store/configureStore";
+import { addBug, updateBug, removeBug } from "./store/bugs";
+
+const store  = configureStore();
 
 /* 
   Subscribe get all store changes
