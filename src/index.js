@@ -1,5 +1,6 @@
 import configureStore from "./store/configureStore";
-import { addBug, updateBug, removeBug } from "./store/bugs";
+import { addBug, updateBug, removeBug, selectorUnresolvedBugs, selectorMemberBug } from "./store/bugs";
+import { addProject } from "./store/projects";
 
 const store  = configureStore();
 
@@ -14,16 +15,24 @@ const unsubscribe = store.subscribe(() => {
 /*
  Actions
 */
-store.dispatch(addBug("Bug one"));
+// store.dispatch(addBug("Bug one"));
+store.dispatch(addBug("Bug one", "Juan López", "High"));
+
 store.dispatch(updateBug(
   1, 
   {
     description: "Bug one updated", 
-    resolved: true
+    resolved: true,
   }
 ));
-store.dispatch(addBug("Bug two"));
+
+store.dispatch(addBug("Bug two", "Irina Ríos", "High"));
+store.dispatch(addProject("New project"))
 // store.dispatch(removeBug(1));
 
 
 unsubscribe();
+
+const getUnresolvedBugs = selectorUnresolvedBugs(store.getState());
+const getBugMember = selectorMemberBug("Juan López")(store.getState());
+console.log(getBugMember)

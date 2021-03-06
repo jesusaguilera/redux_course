@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { reducer } from "./bugs";
+import reducer from "./reducer";
 
 let configureStore = () => {
   return createStore(
@@ -9,3 +9,21 @@ let configureStore = () => {
 };
 
 export default configureStore;
+
+/*
+Store structure
+{
+  entities: {
+    bugs: [{...}, {...}],
+    projects: [{...}, {...}],
+    tasks: [{...}, {...}],
+  },
+  auth: {
+    userId: 1,
+    name: "John"
+  },
+  ui: {
+    bugs: { query: {...}, sortBy: {...} }
+  }
+}
+*/
