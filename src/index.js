@@ -4,8 +4,7 @@ import { addBug, updateBug, removeBug } from "./store/bugs";
 const store  = configureStore();
 
 /* 
-  Subscribe get all store changes
-  working on React it will get changes with React render() method
+  Subscribe gets all store changes
 */
 const unsubscribe = store.subscribe(() => {
   console.log("Store changed!", store.getState());
