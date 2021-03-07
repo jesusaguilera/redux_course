@@ -2,8 +2,7 @@ import store from "./store";
 import { addBug, updateBug, removeBug } from "./actions";
 
 /* 
-  Subscribe get all store changes
-  working on React it will get changes with React render() method
+  Subscribe gets all store changes
 */
 const unsubscribe = store.subscribe(() => {
   console.log("Store changed!", store.getState());
